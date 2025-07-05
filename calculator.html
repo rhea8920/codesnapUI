@@ -79,6 +79,7 @@ align-items: center;
             <button onclick="calculate('')" class="button">=</button>
             <button onclick="press('+')" class="button">+</button>
             <button onclick="cleardisplay()" class="button">C</button>
+             <button onclick="backspace()" class="button">⌫</button>
         </div>
     </div>
     <script>
@@ -90,6 +91,10 @@ function calculate(){
 }
 function cleardisplay(){
     document.getElementById('display').value='';
+}
+        function backspace() {
+  let d = document.getElementById("display");
+  d.value = d.value.slice(0, -1);
 }
     </script>
 </body>
