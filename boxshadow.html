@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Sha</title>
+</head>
+<style>
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 50px;
+  }
+  h1{
+    font-size: 48px;
+    color: #333;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+  }
+  #card{
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 8px 15px rgba(0,0,0,0.2);
+  }
+  #shadow-button{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    border-radius: 6px;
+    box-shadow: inset 0px 2px 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+  }
+</style>
+<body>
+
+  <h1>Shadow Effects</h1>
+  <div id="card">
+    <p> this is a card with a nice box shadow</p>
+    <button><div id="shadow-button" onclick="showAlert()" >Click me</div></button>
+  </div>
+  <script>
+    function showAlert(){
+      alert("Hello! You clicked the button.")
+    };
+  </script>
+</body>
+</html>
