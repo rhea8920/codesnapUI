@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body{
+    background-color: rgb(190, 207, 190)
+  }
+button{
+  padding: 10px 20px;
+  font-size: 20px;
+  margin: 5px;
+  cursor: pointer;
+  border: 5px solid palevioletred;
+  border-radius: 20px;
+}
+#time{
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  margin-left: 55px;
+}
+</style>
+<body>
+ <div id="time">00:00:00</div>
+ <button class="start" id="startBtn">start</button>
+ <button class="stop" id="stopBtn">stop</button>
+  <button class="reset" id="resetBtn">Reset</button>
+  <script>
+    let timer;
+    let hours = 0, minutes = 0, seconds = 0;
+    let isRunning = false;
+
+    function updateDisplay(){
+    let h = hours < 10 ? "0" + hours : hours;
+    let m = minutes < 10 ? "0" + minutes : minutes;
+    let s = seconds < 10 ? "0" + seconds : seconds;
+    document.getElementById("time").textContent = `${h}:${m}:${s}`;
+    }
+    function startTimer() {
+      if (!isRunning){
+        isRunning = true;
+
+        timer = setInterval(() =>{
+         seconds++;
+         if(seconds === 60) {
+          seconds =0;
+          minutes++;
+         }
+         if (minutes === 60){
+          minutes = 0;
+          hours++;
+         }
+         updateDisplay();
+      },1000);
+      }
+    }
+    function stopTimer(){
+      clearInterval(timer);
+      isRunning = false ;
+    }
+    function resetTimer() {
+      clearInterval(timer);
+      isRunning = false;
+
+      hours = minutes = seconds =0;
+      updateDisplay();
+
+    }
+document.getElementById("startBtn").addEventListener("click", startTimer);
+document.getElementById("stopBtn").addEventListener("click", stopTimer);
+document.getElementById("resetBtn").addEventListener("click", resetTimer);
+
+  </script>
+</body>
+</html>
